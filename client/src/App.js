@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import {useState} from 'react'; 
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [text, setText] = useState(''); 
+
+  
+
+  function handleRequest() { 
+    const request = new XMLHttpRequest(); 
+
+    request.addEventListener('load', function() { 
+      setText(this.responseText); 
+    })
+    request.open('GET', '/hey'); 
+    request.send(); 
+    
+  }
+
+
+  return (<>
+    <button onClick={handleRequest}>Make Request</button>
+    <p>{text}</p>
+  </>);
 }
 
 export default App;

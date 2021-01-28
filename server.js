@@ -1,14 +1,17 @@
-const http = require('http'); 
-const server = http.createServer(); 
-const port = 8080; 
+const express = require('express'); 
+const path = require('path'); 
+const app = express(); 
 
-server.on('request', (request, response) => { 
-  if( request.method === 'GET' && request.url === "/hey") { 
-    response.writeHead(200, {'content-type':'text/html'}); 
-    response.write('<h1>Ho</h1>'); 
-    response.end(); 
-  }
+console.log(__dirname)
+app.use(express.static(path.join(__dirname, 'client', 'build'))); 
 
- 
+app.get('/hey', (req, res) => { 
+    res.send('ho2')
+})
 
-}).listen(port, () => console.log(`server listening on ${port}`))
+
+app.get('/', (req, res) => { 
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); 
+})
+
+app.listen(3000, () => console.log('server running...')); 

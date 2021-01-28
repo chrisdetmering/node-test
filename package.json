@@ -4,8 +4,10 @@
   "description": "A test server for hosting a React app I will deploy on Heroku",
   "main": "server.js",
   "scripts": {
-    "test": "test"
-  },"engines": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "engines": {
     "node": "v12.18.3"
   },
   "repository": {
@@ -21,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/n/a/issues"
   },
-  "homepage": "https://github.com/n/a#readme"
+  "homepage": "https://github.com/n/a#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
