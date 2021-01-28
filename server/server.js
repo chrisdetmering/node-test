@@ -1,10 +1,10 @@
 const express = require('express'); 
 const path = require('path'); 
 const app = express(); 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 console.log(__dirname)
-app.use(express.static(path.join(__dirname, 'client', 'build'))); 
+app.use(express.static(path.join(__dirname, '../client', 'build'))); 
 
 app.get('/hey', (req, res) => { 
     res.send('ho2')
@@ -12,7 +12,7 @@ app.get('/hey', (req, res) => {
 
 
 app.get('/', (req, res) => { 
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); 
+  res.sendFile(path.join(__dirname, '../client', 'build', 'index.html')); 
 })
 
 app.listen(PORT, () => console.log('server running...')); 
