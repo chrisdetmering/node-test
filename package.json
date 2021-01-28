@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "test"
+  },"engines": {
+    "node": "v12.18.3"
   },
   "repository": {
     "type": "git",
